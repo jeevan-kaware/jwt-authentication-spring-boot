@@ -1,38 +1,147 @@
+# 🚀 JWT Authentication API
+
+<div align="center">
+
 # 🔐 JWT Authentication API
 
-> A secure JWT Authentication REST API built using Spring Boot and Spring Security for user registration, login, and logout.
+### Secure User Authentication REST API built with Spring Boot & Spring Security
 
-![Java](https://img.shields.io/badge/Java-24-orange?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![Spring Security](https://img.shields.io/badge/Spring_Security-6.x-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-Authentication-blue?style=for-the-badge)
-![Maven](https://img.shields.io/badge/Maven-Build-red?style=for-the-badge&logo=apachemaven&logoColor=white)
+<p align="center">
+
+<img src="https://img.shields.io/badge/Java-24-red?style=for-the-badge&logo=openjdk&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/Spring_Boot-3.x-green?style=for-the-badge&logo=springboot"/>
+
+<img src="https://img.shields.io/badge/Spring_Security-6-green?style=for-the-badge&logo=springsecurity"/>
+
+<img src="https://img.shields.io/badge/JWT-Authentication-orange?style=for-the-badge"/>
+
+<img src="https://img.shields.io/badge/Maven-Build-red?style=for-the-badge&logo=apachemaven"/>
+
+<img src="https://img.shields.io/badge/REST-API-success?style=for-the-badge"/>
+
+<img src="https://img.shields.io/badge/BCrypt-Security-blue?style=for-the-badge"/>
+
+<img src="https://img.shields.io/badge/Validation-Jakarta-success?style=for-the-badge"/>
+
+</p>
+
+</div>
 
 ---
 
 # 📖 Overview
 
-JWT Authentication API is a backend authentication system developed using **Spring Boot** and **Spring Security**.
+JWT Authentication API is a production-ready **Authentication REST API** developed using **Spring Boot** and **Spring Security**.
 
-The project demonstrates how user authentication works using REST APIs with secure password encryption and JWT-based authentication flow.
+The application demonstrates secure user authentication using **JSON Web Tokens (JWT)** and follows modern backend development practices with a clean layered architecture.
 
-It provides APIs for user registration, login, and logout while following clean project structure and validation practices.
+Users can securely register, log in, and log out while passwords are encrypted using **BCrypt Password Encoder**.
+
+The project is designed as a backend-first authentication service that can easily be integrated with any frontend application such as **React, Angular, Vue, Android, or Flutter**.
 
 ---
 
 # ✨ Features
 
-- 🔐 User Registration API
-- 🔑 User Login API
-- 🚪 User Logout API
-- 🔒 Password Encryption using BCrypt
-- ✅ Request Validation
-- ⚡ RESTful API Architecture
-- 📦 Layered Architecture
-- 🛡️ Spring Security Integration
-- 🎯 JWT Authentication
-- 📄 JSON Request & Response
-- 🚀 Maven Project Structure
+## 🔐 Authentication
+
+- User Registration
+- Secure Login
+- JWT Authentication
+- User Logout
+- BCrypt Password Encryption
+- Request Validation
+- Stateless Authentication
+
+---
+
+## 👤 User Management
+
+- Register New User
+- Login Existing User
+- Secure User Authentication
+- JSON Request & Response Handling
+
+---
+
+## 🔒 Security
+
+- Spring Security
+- JWT Authentication
+- BCrypt Password Encoder
+- Protected REST APIs
+- Authentication Filter
+- Custom UserDetailsService
+- Secure Password Storage
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Used |
+|------------|------|
+| Java 24 | ✅ |
+| Spring Boot 3.x | ✅ |
+| Spring Security | ✅ |
+| JWT | ✅ |
+| Maven | ✅ |
+| Lombok | ✅ |
+| Jakarta Validation | ✅ |
+| REST API | ✅ |
+
+---
+
+# 🧩 Architecture
+
+```text
+Controller
+      ↓
+Service
+      ↓
+Repository
+      ↓
+Database (Future Integration)
+```
+
+---
+
+# 🔑 Authentication Flow
+
+Authentication is handled using **JWT Bearer Token**.
+
+After successful login, the server generates a JWT token which must be sent with every protected request.
+
+```text
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+---
+
+# 📡 REST API Documentation
+
+## 🔐 Authentication APIs
+
+| Method | Endpoint | Access | Description |
+|---------|----------|--------|-------------|
+| POST | `/auth/register` | Public | Register a new user |
+| POST | `/auth/login` | Public | Authenticate user and generate JWT |
+| POST | `/auth/logout` | Authenticated | Logout authenticated user |
+
+---
+
+# 🛡 Security Features
+
+- JWT Authentication
+- Spring Security
+- BCrypt Password Encryption
+- Stateless Authentication
+- Secure Login Flow
+- Custom Authentication Filter
+- Authentication Manager
+- UserDetailsService
+- Request Validation
+- Protected REST Endpoints
 
 ---
 
@@ -40,162 +149,336 @@ It provides APIs for user registration, login, and logout while following clean 
 
 ```text
 src
-│
 ├── config
 ├── controller
 ├── dto
+│     ├── request
+│     └── response
 ├── entity
 ├── repository
 ├── security
 ├── service
+├── util
 └── resources
 ```
 
 ---
 
-# 🛠️ Technologies Used
+# 🔄 Request Flow
 
-- Java
-- Spring Boot
-- Spring Security
-- JWT
-- Spring Validation
-- Maven
-- Lombok
+```text
+Client
 
----
+   │
 
-# 🔗 API Endpoints
+   ▼
 
-## Register User
+Controller
 
-```
-POST /auth/register
-```
+   │
 
-Registers a new user.
+   ▼
 
----
+Service
 
-## Login User
+   │
 
-```
-POST /auth/login
-```
+   ▼
 
-Authenticates the user.
+Repository
 
----
+   │
 
-## Logout User
+   ▼
 
-```
-POST /auth/logout
-```
-
-Logs out the authenticated user.
-
----
-
-# 📸 API Screenshots
-
-## 📝 Register API
-
-![](Screenshots/register-api.png)
-
----
-
-## 🔑 Login API
-
-![](Screenshots/login-api.png)
-
----
-
-## 🚪 Logout API
-
-![](Screenshots/logout-api.png)
-
----
-
-# 📱 Validation
-
-The project validates incoming requests using Jakarta Validation.
-
-Examples include:
-
-- Email Required
-- Username Required
-- Password Required
-
----
-
-# 🚀 Future Improvements
-
-This project can be extended with:
-
-- Refresh Token Authentication
-- Role Based Authorization
-- Access Token Expiration
-- Email Verification
-- Forgot Password
-- Reset Password
-- Account Verification
-- PostgreSQL Integration
-- Swagger Documentation
-- Docker Support
-- Unit Testing
-- Global Exception Handling
-- Refresh Token Storage
-- User Profile APIs
-
----
-
-# ▶️ Getting Started
-
-Clone Repository
-
-```bash
-git clone https://github.com/jeevan-kaware/jwt-authentication-spring-boot.git
-```
-
-Open Project
-
-```bash
-cd jwt-authentication-spring-boot
-```
-
-Run Application
-
-```bash
-mvn spring-boot:run
+Authentication Logic
 ```
 
 ---
 
-# 📬 API Testing
+# 🧪 API Testing
 
-You can test the APIs using:
+The REST APIs have been tested using:
 
 - Postman
 - Thunder Client
 - Insomnia
 
+All secured endpoints require a valid JWT Bearer Token.
+
 ---
 
-# 📄 License
+# ⚙️ Getting Started
 
-This project is created for learning and educational purposes.
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/jeevan-kaware/jwt-authentication-spring-boot.git
+```
+
+```bash
+cd jwt-authentication-spring-boot
+```
+
+---
+
+## 2️⃣ Configure JWT
+
+Update your application configuration.
+
+```properties
+jwt.secret=<YOUR_SECRET_KEY>
+jwt.expiration=86400000
+```
+
+---
+
+## 3️⃣ Run the Project
+
+Using Maven
+
+```bash
+./mvnw spring-boot:run
+```
+
+or
+
+```bash
+mvn spring-boot:run
+```
+
+--- 
+# 📸 Screenshots
+
+All screenshots were captured while testing the REST APIs using **Postman** and demonstrate the core authentication features of the application.
+
+---
+
+## 📝 User Registration API
+
+![Register API](Screenshots/register-api.png)
+
+---
+
+## 🔑 User Login API
+
+![Login API](Screenshots/login-api.png)
+
+---
+
+## 🚪 User Logout API
+
+![Logout API](Screenshots/logout-api.png)
+
+---
+
+# 📱 Request Validation
+
+The application validates all incoming requests using **Jakarta Bean Validation** before processing them.
+
+### Validation Rules
+
+- ✅ Username Required
+- ✅ Email Required
+- ✅ Valid Email Format
+- ✅ Password Required
+- ✅ Minimum Password Length
+- ✅ Invalid Request Handling
+
+---
+
+# ⚡ Authentication Workflow
+
+```text
+User
+
+   │
+
+   ▼
+
+Register
+
+   │
+
+   ▼
+
+User Stored Securely
+
+(BCrypt Password)
+
+   │
+
+   ▼
+
+Login
+
+   │
+
+   ▼
+
+JWT Token Generated
+
+   │
+
+   ▼
+
+Client Stores JWT
+
+   │
+
+   ▼
+
+Authorization:
+Bearer TOKEN
+
+   │
+
+   ▼
+
+Protected APIs
+```
+
+---
+
+# 🚀 Future Improvements
+
+The project can be extended with the following enterprise features:
+
+- Refresh Token Authentication
+- Role-Based Authorization (RBAC)
+- PostgreSQL Database Integration
+- Spring Data JPA
+- User Profile APIs
+- Email Verification
+- Forgot Password
+- Reset Password
+- Account Activation
+- Swagger OpenAPI Documentation
+- Docker Support
+- Unit Testing (JUnit)
+- Integration Testing
+- Global Exception Handling
+- Token Expiration & Renewal
+- Redis Token Storage
+- Login Audit Logs
+- Rate Limiting
+- CI/CD Pipeline
+- Cloud Deployment (Railway / Render / AWS)
+
+---
+
+# 💡 Learning Outcomes
+
+This project helped me gain practical experience with:
+
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- REST API Development
+- BCrypt Password Encryption
+- AuthenticationManager
+- UserDetailsService
+- Security Filter Chain
+- Jakarta Bean Validation
+- Maven
+- Lombok
+- Layered Architecture
+- DTO Pattern
+- Exception Handling
+- Secure Backend Development
+
+---
+
+# 📈 Project Highlights
+
+| Feature | Status |
+|----------|--------|
+| User Registration | ✅ |
+| Secure Login | ✅ |
+| JWT Authentication | ✅ |
+| Logout API | ✅ |
+| BCrypt Encryption | ✅ |
+| Spring Security | ✅ |
+| Request Validation | ✅ |
+| REST APIs | ✅ |
+| Maven Project | ✅ |
+
+---
+
+# 👨‍💻 Author
+
+**Jeevan Kaware**
+
+Java Backend Developer
+
+GitHub:  
+https://github.com/jeevan-kaware/jwt-authentication-spring-boot
+
+LinkedIn:  
+https://www.linkedin.com/in/jeevan-kaware-080643355
+
+Portfolio:  
+https://smart-portfolio-kappa-eight.vercel.app/
 
 ---
 
 # 🤝 Connect With Me
 
-**Jeevan Kaware**
+If you'd like to connect, collaborate, or discuss Java Backend Development, feel free to reach out.
 
-💼 LinkedIn
+- 💼 LinkedIn
+- 💻 GitHub
+- 🌐 Portfolio
 
-https://www.linkedin.com/in/jeevan-kaware-080643355
+I’m always open to learning, collaboration, and exciting backend development opportunities.
 
 ---
 
-⭐ If you found this project helpful, consider giving it a Star.
+# 📄 License
+
+This project is created for **learning, educational, and portfolio purposes**.
+
+You are free to explore, learn from, and modify the source code for educational use.
+
+---
+
+# ⭐ Support This Project
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.
+
+It motivates me to build more production-ready Java Backend applications and contribute to open-source projects.
+
+---
+
+# 🚀 Upcoming Projects
+
+Some backend projects currently under development:
+
+- 📋 Task Flow API
+- 📝 Smart Notes API
+- 🤖 AI Model Comparison API
+- 🛒 E-Commerce Backend API
+- 👨‍💼 HR Management System
+- 🎓 Student Management System
+
+---
+
+# 📬 Feedback
+
+Suggestions, improvements, and contributions are always welcome.
+
+If you find any issues or have ideas for improvement, feel free to open an issue or submit a pull request.
+
+---
+
+<div align="center">
+
+## 🚀 Built with Java, Spring Boot, Spring Security, JWT & ❤️
+
+### Thank you for visiting this repository.
+
+⭐ Don't forget to star the repository if you found it useful.
+
+**Happy Coding! ☕**
+
+</div>
